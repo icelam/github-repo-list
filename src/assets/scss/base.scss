@@ -1,0 +1,46 @@
+@import '~@style/_variables';
+@import '~@style/_colors';
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: $color-font;
+  background-color: $color-body-background;
+  width: 100%;
+  height: 100%;
+  /* min-width: 320px; */
+  font-size: $base-font-size;
+  line-height: 1.5;
+  font-family: 'Roboto', 'PingFang TC', 'Lantinghei TC', 'Heiti TC', 'Apple LiGothic', 微軟正黑體, 'Microsoft JhengHei', 'Microsoft JhengHei UI', 'Microsoft YaHei', 'Microsoft YaHei UI', 'PMingLiU', Arial, sans-serif;
+}
+
+b {
+  font-weight: 500;
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+
+  &:hover, &:active {
+    color: darken($color-link, 10%);
+  }
+}
+
+.container {
+  max-width: $screen-lg;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 2.5em 2em;
+
+  @media #{$mobile} {
+    padding: 1.25em 1em;
+  }
+}
+
+.row {
+  margin: 1em 0;
+}

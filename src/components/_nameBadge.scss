@@ -1,0 +1,47 @@
+@import '~@style/_variables';
+
+.name-badge {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.25em;
+  font-size: 1em;
+
+  @media #{$mobile} {
+    font-size: 0.875em;
+  }
+
+  &__image {
+    flex: 0 0 auto;
+    min-height: 1px; /* IE Flexbox image resize issue fix - https://github.com/philipwalton/flexbugs/issues/75 */
+
+    img {
+      width: 2.875em;
+      height: 2.875em;
+      margin: 0 1.25em 0 0;
+      border-radius: 50%;
+      display: block;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.125em 0;
+    min-width: 0; /* To make ellipsis work */
+  }
+
+  &__username {
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__link {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

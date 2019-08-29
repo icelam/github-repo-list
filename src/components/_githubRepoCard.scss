@@ -1,0 +1,97 @@
+@import '~@style/_colors';
+@import '~@style/_variables';
+
+.repo-card {
+  background: $color-repo-card-background;
+  box-shadow: 0 0 0.125em $color-repo-card-shadow;
+  border-radius: 0.3125em;
+  padding: 1.5em 1.875em;
+  font-size: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  & + & {
+    margin: 1.25em 0 0 0;
+  }
+
+  &__name {
+    font-weight: 500;
+  }
+
+  &__seperator, &__language{
+    color: $color-repo-card-font-light;
+  }
+
+  &__description {
+    color: $color-repo-card-description;
+    margin: 0.75em 0 0 0;
+    font-size: 0.875em;
+    min-width: 100%;
+  }
+
+  &__statistics {
+    display: flex;
+    flex-wrap: nowrap;
+
+    &__item {
+      color: $color-repo-card-icon-text;
+      margin: 0 0 0 1.875em;
+      white-space: nowrap;
+
+      .fa, .fas, .far {
+        color: $color-repo-card-icon;
+        margin: 0 0.625em 0 0;
+      }
+    }
+  }
+}
+
+@media #{$mobileTablet} {
+  .repo-card {
+    flex-direction: column;
+
+    &__title {
+      order: 1;
+    }
+
+    &__description {
+      order: 2;
+    }
+
+    &__statistics {
+      order: 3;
+      margin: 0.625em 0 0 0;
+
+      &__item {
+        margin: 0 0 0 1.25em;
+
+        &:first-child {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media #{$mobile} {
+  .repo-card {
+    font-size: 0.875em;
+    padding: 1em 1.15em;
+
+    & + & {
+      margin: 1.15em 0 0 0;
+    }
+
+    &__statistics {
+      flex-wrap: wrap;
+
+      &__item {
+        &:last-child {
+          margin: 0.25em 0 0 0;
+          min-width: 100%;
+        }
+      }
+    }
+  }
+}
