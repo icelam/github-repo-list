@@ -54,7 +54,37 @@ module.exports = merge(baseWebpackConfig, {
     new WorkboxPlugin.GenerateSW({
       clientsClaim: false,
       skipWaiting: false,
-      globIgnores: ['**/.DS_Store']
+      globIgnores: ['**/.DS_Store'],
+      runtimeCaching: [
+        {
+          urlPattern: /^https:\/\/fonts\.(googleapis|gstatic)\.com.*/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'my-github-repo-google-fonts',
+            expiration: {
+              maxEntries: 60,
+              maxAgeSeconds: 30 * 24 * 60 * 60 // 30 Days
+            },
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        },
+        {
+          urlPattern: /^https:\/\/api\.github\.com.*/,
+          handler: 'NetworkFirst'
+        },
+        {
+          urlPattern: /^https:\/\/avatars1\.githubusercontent\.com.*/,
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'my-github-repo-user-avatar',
+            cacheableResponse: {
+              statuses: [0, 200]
+            }
+          }
+        }
+      ]
     }),
     new BundleAnalyzerPlugin({
       analyzerMode: 'static',
