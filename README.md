@@ -1,6 +1,8 @@
-# Github Repositoryepo List #
+# Github Repository List #
 
 > List all your Github repositories on one page.
+
+![Screen Preview](https://github.com/icelam/github-repo-list/raw/master/design/export_screens/Desktop%402x.png)
 
 ### Installation ###
 
