@@ -1,5 +1,5 @@
 const Path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlVariablesPlugin = require('html-variables-plugin');
@@ -27,7 +27,7 @@ module.exports = {
     }
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'], { root: Path.resolve(__dirname, '..') }),
+    new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: Path.resolve(__dirname, '../src/assets/images'), to: 'assets/images', ignore: ['**/.DS_Store'] },
       { from: Path.resolve(__dirname, '../src/manifest.json'), to: 'manifest.json' }
